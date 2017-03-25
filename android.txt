@@ -1,0 +1,3 @@
+title=arkanoit
+author=andres
+orientation=portrait
