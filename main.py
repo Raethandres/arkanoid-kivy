@@ -13,8 +13,6 @@ from kivy.uix.carousel import Carousel
 
 
 class ArkanivyBrick(Widget):
-	color=(1,1,2,2)
-
     def bounce_ball(self, ball):
         if self.collide_widget(ball):
             vx, vy = ball.velocity
@@ -35,10 +33,9 @@ class ArkanivyBrick(Widget):
                 ball.velocity = vel.x, vel.y+offset
             return True
         return False
-
+    
     def on_parent(self, widget, parent):
         if parent is not None:
-        	color
             parent.bricks.append(self)
 
 
@@ -93,14 +90,14 @@ class ArkanivyGame(Widget):
         self.player.bounce_ball(self.ball)
 
         for brick in self.bricks:
-        	if brick.bounce_ball(self.ball):
-				try:
-					self.remove_widget(brick)
-					brick.center_x=brick.center_x+10000
-					self.player.score+=1
-				except:
-					brick.center_x=brick.center_x+10000
-					self.player.score+=1
+            if brick.bounce_ball(self.ball):
+                try:
+                    self.remove_widget(brick)
+                    brick.center_x=brick.center_x+10000
+                    self.player.score+=1
+                except:
+                    brick.center_x=brick.center_x+10000
+                    self.player.score+=1
             #self.remove_widget(self.bricks)
             #self.bricks.remove(brick)
 
@@ -115,15 +112,15 @@ class ArkanivyGame(Widget):
             self.returnBall()
 
         if self.player.score>=13:
-        	# self.bricks[0].center_x=100
-        	# self.bricks[0].center_y=100
-        	# self.returnBall()
-        	# self.add_widget(self.bricks[0])
-        	returnBall()
-        	return False
+            # self.bricks[0].center_x=100
+            # self.bricks[0].center_y=100
+            # self.returnBall()
+            # self.add_widget(self.bricks[0])
+            returnBall()
+            return False
 
     def returnBall(self):
-    	self.sb=0
+        self.sb=0
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = (0,0)
@@ -161,14 +158,14 @@ class ArkanivyGame1(Widget):
         self.player.bounce_ball(self.ball)
 
         for brick in self.bricks:
-        	if brick.bounce_ball(self.ball):
-				try:
-					self.remove_widget(brick)
-					brick.center_x=brick.center_x+10000
-					self.player.score+=1
-				except:
-					brick.center_x=brick.center_x+10000
-					self.player.score+=1
+            if brick.bounce_ball(self.ball):
+                try:
+                    self.remove_widget(brick)
+                    brick.center_x=brick.center_x+10000
+                    self.player.score+=1
+                except:
+                    brick.center_x=brick.center_x+10000
+                    self.player.score+=1
             #self.remove_widget(self.bricks)
             #self.bricks.remove(brick)
 
@@ -183,15 +180,15 @@ class ArkanivyGame1(Widget):
             self.returnBall()
 
         if self.player.score>=13:
-        	# self.bricks[0].center_x=100
-        	# self.bricks[0].center_y=100
-        	# self.returnBall()
-        	# self.add_widget(self.bricks[0])
-        	returnBall()
-        	return False
+            # self.bricks[0].center_x=100
+            # self.bricks[0].center_y=100
+            # self.returnBall()
+            # self.add_widget(self.bricks[0])
+            returnBall()
+            return False
 
     def returnBall(self):
-    	self.sb=0
+        self.sb=0
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = (0,0)
