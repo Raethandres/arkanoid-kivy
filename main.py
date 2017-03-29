@@ -210,15 +210,15 @@ class ArkanivyGame1(Widget):
 class ArkanivyApp(App):
     def build(self):
         game = ArkanivyGame()
-        gam=ArkanivyGame1()
-        caro=Carousel()
-        caro.add_widget(game)
+        #gam=ArkanivyGame1()
+        #caro=Carousel()
+        #caro.add_widget(game)
         #caro.add_widget(gam)
        #game.serve_ball()
         #Builder.apply_file(game, 'level1.kv')
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         print 'ok'
-        return caro
+        return game
 
 
 if __name__ == '__main__':
