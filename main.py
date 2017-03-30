@@ -124,7 +124,7 @@ class ArkanivyGame(Widget):
         self.ball.velocity = (0,0)
 
     def on_touch_down(self, touch):
-        if touch.x>self.player.center_x-(self.player.width) and  touch.x<self.player.center_x+(self.player.width) and touch.y>self.player.center_y-(self.player.height/2) and  touch.y<self.player.center_y+(self.player.height/2) :
+        if touch.x>self.player.center_x-(self.player.width) and  touch.x<self.player.center_x+(self.player.width) and  touch.y<self.player.center_y+(self.player.height/2) :
             self.sw=1
         if touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
             self.serve_ball()
