@@ -95,68 +95,9 @@
         center_x: 30
         top: root.top
         text: str(root.player.score)
-
-<ArkanivyGame1>:
-    ball: arkanivy_ball
-    player: player_paddle
-
-    ArkanivyBall:
-        id: arkanivy_ball
-        center_x: self.parent.center_x
-        center_y: self.parent.y + self.height + 40
-
-    ArkanivyPaddle:
-        id: player_paddle
-        center_x: self.parent.center_x
-        center_y: self.parent.y + self.height + 10
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x
-        center_y: self.parent.top - 150
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 50
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 50
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 100
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 150
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 100
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 50
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 50
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 100
-        center_y: self.parent.top - 75
-
     Label:
-        font_size: 70  
-        center_x: 30
+        font_size: 30  
+        center_x: self.parent.center_x + self.parent.center_x - 100
+        center_y: 30
         top: root.top
-        text: str(root.player.score)
-
+        text: str("Level 1")

@@ -16,21 +16,21 @@ class ArkanivyBrick(Widget):
     def bounce_ball(self, ball):
         if self.collide_widget(ball):
             vx, vy = ball.velocity
-            offset = 0
             bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.1
+            print "ArkanivyBrick** ",bounced
+            vel = bounced * 1.02
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
-                    ball.velocity = vel.x+1, vel.y+offset
+                    ball.velocity = vel.x+1, vel.y
                 else:
-                    ball.velocity=vel.x+0.5, vel.y+offset
+                    ball.velocity=vel.x+0.5, vel.y
             elif ball.center_x<self.center_x:
                 if vel.x>0.5:
-                    ball.velocity = vel.x-1, vel.y+offset
+                    ball.velocity = vel.x-1, vel.y
                 else:
-                    ball.velocity = vel.x-0.5, vel.y+offset
+                    ball.velocity = vel.x-0.5, vel.y
             else:
-                ball.velocity = vel.x, vel.y+offset
+                ball.velocity = vel.x, vel.y
             return True
         return False
     
@@ -42,25 +42,24 @@ class ArkanivyBrick(Widget):
 class ArkanivyPaddle(Widget):
     score = NumericProperty(0)
     sw=0
-    g=0.5
     def bounce_ball(self, ball):
         if self.collide_widget(ball):
             vx, vy = ball.velocity
-            offset = 0
             bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.1
+            print "ArkanivyPaddle** ",bounced
+            vel = bounced * 1.02
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
-                    ball.velocity = vel.x+1, vel.y+offset
+                    ball.velocity = vel.x+1, vel.y
                 else:
-                    ball.velocity=vel.x+0.5, vel.y+offset
+                    ball.velocity=vel.x+0.5, vel.y
             elif ball.center_x<self.center_x:
                 if vel.x>0.5:
-                    ball.velocity = vel.x-1, vel.y+offset
+                    ball.velocity = vel.x-1, vel.y
                 else:
-                    ball.velocity = vel.x-0.5, vel.y+offset
+                    ball.velocity = vel.x-0.5, vel.y
             else:
-                ball.velocity = vel.x, vel.y+offset
+                ball.velocity = vel.x, vel.y
 
 class ArkanivyBall(Widget):
     velocity_x = NumericProperty(0)
@@ -78,14 +77,13 @@ class ArkanivyGame(Widget):
     sw=0
     sb=0
 
-    def serve_ball(self, vel=(0, 1)):
+    def serve_ball(self, vel=(0, 4)):
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = vel
 
     def update(self, dt):
         self.ball.move()
-
         # bounce of paddles
         self.player.bounce_ball(self.ball)
 
