@@ -23,19 +23,19 @@ class ArkanivyBrick(Widget):
         self.p=0
 
     def level1(self):
-        y=1
+        y=2
         if self.im:
             self.im=[]
         else:
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=500 ,y=300,size=(56, 26)))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=556 ,y=300,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=500 ,y=300,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=556 ,y=300,size=(56, 26)))
             # self.im.append(Image(source=str(y)+'.png' ,x=612 ,y=300,size=(56, 26)))
             # self.im.append(Image(source=str(y)+'.png' ,x=444 ,y=300,size=(56, 26)))
             # self.im.append(Image(source=str(y)+'.png' ,x=388 ,y=300,size=(56, 26)))
             # self.im.append(Image(source=str(y)+'.png' ,x=332 ,y=300,size=(56, 26)))
             # self.im.append(Image(source=str(y)+'.png' ,x=276 ,y=300,size=(56, 26)))
             # self.im.append(Image(source=str(y)+'.png' ,x=220 ,y=300,size=(56, 26)))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=164 ,y=300,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=164 ,y=300,size=(56, 26)))
         return self.im
 
     def level2(self):
