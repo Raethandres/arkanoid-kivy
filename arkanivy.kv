@@ -1,13 +1,6 @@
 #:kivy 1.0.9
 
-<ArkanivyBrick>:
-    size: 50, 25
-    canvas:
-        Color:
-            rgba: 1,1,2,2
-        Rectangle:
-            pos: self.pos
-            size: self.size
+
 
 
 <ArkanivyBall>:
@@ -37,58 +30,6 @@
         id: player_paddle
         center_x: self.parent.center_x
         center_y: self.parent.y + self.height + 40
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x
-        center_y: self.parent.top - 150
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 150
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 100
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 50
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 50
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 100
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 150
-        center_y: self.parent.top - 50
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 100
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x - 50
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 50
-        center_y: self.parent.top - 75
-
-    ArkanivyBrick:
-        center_x: self.parent.center_x + 100
-        center_y: self.parent.top - 75
 
     Label:
         font_size: 70  
