@@ -15,10 +15,9 @@ from kivy.uix.image import Image
 
 
 class ArkanivyBrick(Widget):
-    
 
     def var(self):
-        self.dic={'1':self.level1,'2':self.level2}
+    	self.dic={'1':self.level1,'2':self.level2,'4':self.level4}
         self.im=[]
         self.p=0
 
@@ -54,6 +53,25 @@ class ArkanivyBrick(Widget):
             self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=164 ,y=300))
         return self.im
 
+    def level4(self):
+        y=6
+        x=1
+        if self.im:
+            self.im=[]
+        else:
+        	# 1: amarillo  6: azul                                #aumento x: 61 y 31 512
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=200 ,y=512,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=261 ,y=512,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=322 ,y=512,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=383 ,y=512,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=139 ,y=481,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=200 ,y=481,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=322 ,y=481,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=383 ,y=481,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=139 ,y=450,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=200 ,y=450,size=(56, 26)))
+        return self.im
+
     def bounce_ball(self,ball,index):
         
 
@@ -86,6 +104,7 @@ class ArkanivyBrick(Widget):
 
 class ArkanivyPaddle(Widget):
     score = NumericProperty(0)
+    level = ObjectProperty("Level 1")
     sw=0
     g=0.5
     def bounce_ball(self, ball):
@@ -126,15 +145,21 @@ class ArkanivyGame(Widget):
     bricks= ArkanivyBrick()
     sw=0
     sb=0
-
     def load_level(self,l):
-        self.bricks.var()
-        f=self.bricks.dic[l]
-        f()
-        for x in self.bricks.im:
-            #print 'aja'
-            self.add_widget(x)
+		self.bricks.var()
+		f=self.bricks.dic[l]
+		f()
+		for x in self.bricks.im:
+			self.add_widget(x)
 
+    def load_im(self):
+        self.life=[]
+        self.life.append(Image(source='/resorce/vida.png',x=0,y=430))
+        self.life.append(Image(source='/resorce/vida.png',x=25,y=430))
+        self.life.append(Image(source='/resorce/vida.png',x=50,y=430))
+        for x in self.life:
+            self.add_widget(x)
+     #   self.lifes=3;
 
     def serve_ball(self, vel=(0, 1)):
         print 'serve'
@@ -217,8 +242,18 @@ class ArkanivyApp(App):
         game.load_level('2')
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
+    def level3(self):
+        game = ArkanivyGame()
+        game.load_level('3')
+        Clock.schedule_interval(game.update, 1.0 / 60.0)
+        return game
+    def level4(self):
+        game = ArkanivyGame()
+        game.load_level('4')
+        Clock.schedule_interval(game.update, 1.0 / 60.0)
+        return game
     def build(self):
-        game=self.level1()
+        game=self.level4()
         #game=self.level2()
         
         return game
