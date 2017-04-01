@@ -16,9 +16,11 @@ from kivy.uix.image import Image
 
 class ArkanivyBrick(Widget):
     m=650  #650  #100
+    nx=130
+    rx=90
     def var(self):
     	self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
-        self.po={'1':20,'2':9,'3':12,'4':62}
+        self.po={'1':20,'2':36,'3':12,'4':62}
         self.im=[]
         self.p=0
 
@@ -27,7 +29,7 @@ class ArkanivyBrick(Widget):
         if self.im:
             self.im=[]
         else:
-            px=120
+            px=300
             py=300
             for x in range(5):
                 for z in range(4):
@@ -40,26 +42,55 @@ class ArkanivyBrick(Widget):
         return self.im
 
     def level2(self):
-        y=1
+        y=4
+        x=3
         if self.im:
             self.im=[]
         else:
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=500 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=556 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=612 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=444 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=388 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=332 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=276 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=220 ,y=300))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=164 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.nx ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.nx ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.nx ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.nx ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.nx ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.nx ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.nx ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.nx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.nx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.nx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.nx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=178+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=239+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605+self.nx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605+self.nx ,y=883-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=239+self.nx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.nx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.nx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422+self.nx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605+self.nx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=117+self.nx ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.nx ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=117+self.nx ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=269+self.nx ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=330+self.nx ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=391+self.nx ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=178+self.nx ,y=759-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=239+self.nx ,y=759-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.nx ,y=759-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.nx ,y=759-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422+self.nx ,y=759-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483+self.nx ,y=759-self.m,size=(56, 26)))
         return self.im
+
     def level3(self):
         y=3
         if self.im:
             self.im=[]
         else:
-            px=120
+            px=300
             py=300
             for x in range(3):
                 for z in range(4):
@@ -80,68 +111,68 @@ class ArkanivyBrick(Widget):
             # 1: amarillo  6: azul         #self.width:ancho  #self.hidn:alto  #aumento x: 61 y 31 512
             #1200 y
             #720 x
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=1100-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=1100-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1100-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1100-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=1069-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=1069-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1069-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1069-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=1038-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=1038-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=1038-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1038-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1038-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1007-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1007-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=1007-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=976-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=976-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=976-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=976-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=976-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=976-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605 ,y=976-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=945-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605 ,y=945-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=914-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=914-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=914-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=883-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=883-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=883-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=852-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=852-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422 ,y=852-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=852-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=852-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=821-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=821-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=821-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=821-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=790-self.m,size=(56, 26)))       
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=790-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422 ,y=790-self.m,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.rx ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.rx ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.rx ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.rx ,y=1038-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.rx ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.rx ,y=976-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.rx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605+self.rx ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.rx ,y=945-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605+self.rx ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300+self.rx ,y=914-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.rx ,y=914-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239+self.rx ,y=883-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.rx ,y=883-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.rx ,y=883-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.rx ,y=852-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.rx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422+self.rx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483+self.rx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.rx ,y=821-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.rx ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483+self.rx ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544+self.rx ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300+self.rx ,y=790-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361+self.rx ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422+self.rx ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483+self.rx ,y=790-self.m,size=(56, 26)))
 
         return self.im
 
@@ -201,7 +232,8 @@ class ArkanivyBall(Widget):
 class ArkanivyGame(Widget):
     ball = ObjectProperty(None)
     player = ObjectProperty(None)
-    
+    vida=3
+    life=[]
     #bricks =  ListProperty([])
     bricks= ArkanivyBrick()
     sw=0
@@ -218,7 +250,7 @@ class ArkanivyGame(Widget):
             self.add_widget(x)
 
     def load_im(self):
-        self.life=[]
+        
         self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
         self.life.append(Image(source='resorce/vida.png',x=25,y=self.height-100))
         self.life.append(Image(source='resorce/vida.png',x=50,y=self.height-100))
@@ -246,6 +278,8 @@ class ArkanivyGame(Widget):
         if self.ball.x < self.x or self.ball.x + self.ball.width > self.width:
             self.ball.velocity_x *= -1
         if self.ball.y < self.y:
+            self.life[self.vida-1].center_x=self.life[self.vida-1].center_x+10000
+            self.vida-=1
             self.returnBall()
         if self.player.score>=self.poi:
             aux=self.player.level.split(' ')
@@ -255,7 +289,9 @@ class ArkanivyGame(Widget):
             self.player.level="Level "+str(f)
             self.player.score=0
             self.returnBall()
-            #return False
+        if self.vida==0:
+            print "murio el puto"
+            return False
 
     def returnBall(self):
         self.sb=0
@@ -303,7 +339,7 @@ class ArkanivyApp(App):
         return game
 
     def build(self):
-        game=self.level1()
+        game=self.level4()
         game.load_im()
         return game
 
