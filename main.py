@@ -42,15 +42,15 @@ class ArkanivyBrick(Widget):
         if self.im:
             self.im=[]
         else:
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=500 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=556 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=612 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=444 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=388 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=332 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=276 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=220 ,y=300))
-            self.im.append(Image(source='/resorce/'+str(y)+'.png' ,x=164 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=500 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=556 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=612 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=444 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=388 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=332 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=276 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=220 ,y=300))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=164 ,y=300))
         return self.im
 
     def level4(self):
@@ -201,13 +201,14 @@ class ArkanivyGame(Widget):
             self.returnBall()
 
         if self.player.score>=2:
-            #self.load_level('2')
+            self.load_level('2')
+            self.player.score=0
             # self.bricks[0].center_x=100
             # self.bricks[0].center_y=100
             # self.returnBall()
             # self.add_widget(self.bricks[0])
             self.returnBall()
-            return False
+            #return False
 
     def returnBall(self):
         self.sb=0
@@ -253,8 +254,7 @@ class ArkanivyApp(App):
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
     def build(self):
-        game=ArkanivyGame()
-        game.load_level('4')
+        game=self.level1()
         #game=self.level2()
         
         return game
