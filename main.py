@@ -14,9 +14,8 @@ from kivy.uix.image import Image
 from kivy.uix.screenmanager import ScreenManager, Screen
 #from plyer import accelerometer
 
-
 class ArkanivyBrick(Widget):
-
+    m=100  #650
     def var(self):
     	self.dic={'1':self.level1,'2':self.level2,'4':self.level4}
         self.po={'1':48,'2':9}
@@ -63,17 +62,72 @@ class ArkanivyBrick(Widget):
         if self.im:
             self.im=[]
         else:
-        	# 1: amarillo  6: azul                                #aumento x: 61 y 31 512
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=200 ,y=512,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=261 ,y=512,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=322 ,y=512,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=383 ,y=512,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=139 ,y=481,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=200 ,y=481,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=322 ,y=481,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=383 ,y=481,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=139 ,y=450,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=200 ,y=450,size=(56, 26)))
+        	# 1: amarillo  6: azul         #self.width:ancho  #self.hidn:alto  #aumento x: 61 y 31 512
+            #1200 y
+            #720 x
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1100-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1069-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=1038-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1038-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=1007-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=976-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605 ,y=976-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=945-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605 ,y=945-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=300 ,y=914-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=361 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=422 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=483 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=605 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=178 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=914-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=914-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=239 ,y=883-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=883-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=883-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=852-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422 ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=852-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=821-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=544 ,y=821-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=300 ,y=790-self.m,size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=361 ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=422 ,y=790-self.m,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=483 ,y=790-self.m,size=(56, 26)))
+
         return self.im
 
     def bounce_ball(self,ball,index):
@@ -84,7 +138,7 @@ class ArkanivyBrick(Widget):
             vx, vy = ball.velocity
             offset = 0
             bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.1
+            vel = bounced * 1.02
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
                     ball.velocity = vel.x+1, vel.y+offset
@@ -116,7 +170,7 @@ class ArkanivyPaddle(Widget):
             vx, vy = ball.velocity
             offset = 0
             bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.1
+            vel = bounced * 1.02
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
                     ball.velocity = vel.x+1, vel.y+offset
@@ -137,10 +191,13 @@ class ArkanivyBall(Widget):
 
     def move(self):
         self.pos = Vector(*self.velocity) + self.pos
+<<<<<<< HEAD
+=======
         #print 'move'
 
 
 
+>>>>>>> 4cdc3423d4ee1d3be95f148a088aafa4f9fb7111
 
 class ArkanivyGame(Widget):
     ball = ObjectProperty(None)
@@ -152,15 +209,44 @@ class ArkanivyGame(Widget):
     poi=NumericProperty(0)
 
     def load_level(self,l):
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+        self.bricks.var()
+        f=self.bricks.dic[l]
+        f()
+        for x in self.bricks.im:
+	   	   self.add_widget(x)
+=======
+        
+>>>>>>> cf4d88bb93713cac9d147997568d4ad9f5ca2891
         self.bricks.var()
         self.poi=int(self.bricks.po[l])
         f=self.bricks.dic[l]
         f()
         for x in self.bricks.im:
             self.add_widget(x)
+>>>>>>> 4cdc3423d4ee1d3be95f148a088aafa4f9fb7111
 
+<<<<<<< HEAD
+=======
+    def load_im(self):
+        self.life=[]
+        self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
+        self.life.append(Image(source='resorce/vida.png',x=25,y=self.height-100))
+        self.life.append(Image(source='resorce/vida.png',x=50,y=self.height-100))
+        for x in self.life:
+            self.add_widget(x)
+     #   self.lifes=3;
+
+<<<<<<< HEAD
+    def serve_ball(self, vel=(0, 4)):
+=======
+>>>>>>> cf4d88bb93713cac9d147997568d4ad9f5ca2891
     def serve_ball(self, vel=(0, 1)):
         #print 'serve'
+>>>>>>> 4cdc3423d4ee1d3be95f148a088aafa4f9fb7111
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = vel
@@ -170,8 +256,12 @@ class ArkanivyGame(Widget):
 
         # bounce of paddles
         self.player.bounce_ball(self.ball)
+<<<<<<< HEAD
+        for x in range(len(self.bricks.im)-1):
+=======
         #print len(self.bricks.im)
         for x in range(len(self.bricks.im)):
+>>>>>>> 4cdc3423d4ee1d3be95f148a088aafa4f9fb7111
             #print x
             if self.bricks.bounce_ball(self.ball,x):
                 self.remove_widget(self.bricks.im[x])
@@ -190,6 +280,7 @@ class ArkanivyGame(Widget):
             #self.bricks.remove(brick)
 
         # bounce ball off size
+        
         if self.ball.top > self.top:
             self.ball.velocity_y *= -1
         if self.ball.x < self.x or self.ball.x + self.ball.width > self.width:
@@ -199,12 +290,17 @@ class ArkanivyGame(Widget):
         if self.ball.y < self.y:
             self.returnBall()
 
+<<<<<<< HEAD
+        if self.player.score>=2:
+            self.load_level('2')
+=======
         if self.player.score>=self.poi:
             aux=self.player.level.split(' ')
             f=int(aux[1])
             f+=1
             self.load_level(str(f))
             self.player.Level="Level "+str(f)
+>>>>>>> 4cdc3423d4ee1d3be95f148a088aafa4f9fb7111
             self.player.score=0
 
             # self.bricks[0].center_x=100
@@ -269,6 +365,7 @@ class ArkanivyApp(App):
         return game
 
     def build(self):
+<<<<<<< HEAD
 
         
         game=self.level1()
@@ -281,6 +378,16 @@ class ArkanivyApp(App):
         # self.sm.add_widget(s)
         # self.sm.add_widget(s1)
 
+=======
+<<<<<<< HEAD
+        game=ArkanivyGame()
+        game.load_im()
+        game.load_level('4')
+        Clock.schedule_interval(game.update, 1.0 / 60.0)
+=======
+        game=self.level1()
+>>>>>>> 4cdc3423d4ee1d3be95f148a088aafa4f9fb7111
+>>>>>>> cf4d88bb93713cac9d147997568d4ad9f5ca2891
         #game=self.level2()
         
         return game
