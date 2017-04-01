@@ -243,8 +243,13 @@ class ArkanivyGame(Widget):
 
 
     def manu(self):
-        self.i=Image(source='resorce/1.png',x=0,y=100)
-        self.add_widget(self.i)
+        self.b=[]
+        self.b.append(Image(source='resorce/boton1.jpg',x=0,y=100))
+        self.b.append(Image(source='resorce/boton2.jpg',x=100,y=100))
+        self.b.append(Image(source='resorce/boton3.jpg',x=100,y=0))
+        self.b.append(Image(source='resorce/boton4.jpg',x=0,y=0))
+        for x in self.b:
+            self.add_widget(x)
         self.mn=1
         self.mx=0
         self.my=100
@@ -305,9 +310,7 @@ class ArkanivyGame(Widget):
                 return False
         else:
             print 'aja'
-            animation = Animation(pos=(200, 100), t='out_bounce')
-            animation += Animation(pos=(100, 100), t='out_bounce')
-            animation.start(self.i)
+            
 
 #=======
         
@@ -325,11 +328,16 @@ class ArkanivyGame(Widget):
         if not self.sb and touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
             self.serve_ball()
             self.sb=1
-        if self.i.collide_point(touch.x,touch.y):
-            self.load_level('1')
-            self.load_im()
-            self.remove_widget(self.i)
-            self.mn=0
+        g=-1
+        for bt in self.b:
+            g+=1
+            if bt.collide_point(touch.x,touch.y):
+                self.load_level(str(g+1))
+                self.load_im()
+                for t in self.b:
+                    self.remove_widget(t)
+                self.mn=0
+                break
     def on_touch_move(self, touch):
         if self.sw:
             self.player.center_x = touch.x
