@@ -18,6 +18,7 @@ class ArkanivyBrick(Widget):
 
     def var(self):
     	self.dic={'1':self.level1,'2':self.level2,'4':self.level4}
+        self.po={'1':3,'2':9}
         self.im=[]
         self.p=0
 
@@ -74,7 +75,7 @@ class ArkanivyBrick(Widget):
 
     def bounce_ball(self,ball,index):
         
-
+        #print self.im
         if self.im[index].collide_widget(ball):
             #print 'df'
             vx, vy = ball.velocity
@@ -133,7 +134,7 @@ class ArkanivyBall(Widget):
 
     def move(self):
         self.pos = Vector(*self.velocity) + self.pos
-        print 'move'
+        #print 'move'
 
 
 
@@ -145,12 +146,16 @@ class ArkanivyGame(Widget):
     bricks= ArkanivyBrick()
     sw=0
     sb=0
+    poi=NumericProperty(0)
+
     def load_level(self,l):
-		self.bricks.var()
-		f=self.bricks.dic[l]
-		f()
-		for x in self.bricks.im:
-			self.add_widget(x)
+        
+        self.bricks.var()
+        self.poi=int(self.bricks.po[l])
+        f=self.bricks.dic[l]
+        f()
+        for x in self.bricks.im:
+            self.add_widget(x)
 
     def load_im(self):
         self.life=[]
@@ -162,7 +167,7 @@ class ArkanivyGame(Widget):
      #   self.lifes=3;
 
     def serve_ball(self, vel=(0, 1)):
-        print 'serve'
+        #print 'serve'
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = vel
@@ -172,14 +177,15 @@ class ArkanivyGame(Widget):
 
         # bounce of paddles
         self.player.bounce_ball(self.ball)
-
-        for x in range(len(self.bricks.im)-1):
+        #print len(self.bricks.im)
+        for x in range(len(self.bricks.im)):
             #print x
             if self.bricks.bounce_ball(self.ball,x):
                 self.remove_widget(self.bricks.im[x])
                 self.bricks.im[x].center_x=self.bricks.im[x].center_x+10000
                 self.bricks.im.pop(x)
                 self.player.score+=1
+                break
         #         try:
         #             self.remove_widget(brick)
         #             brick.center_x=brick.center_x+10000
@@ -200,7 +206,7 @@ class ArkanivyGame(Widget):
         if self.ball.y < self.y:
             self.returnBall()
 
-        if self.player.score>=2:
+        if self.player.score>=self.poi:
             self.load_level('2')
             self.player.score=0
             # self.bricks[0].center_x=100
@@ -219,7 +225,7 @@ class ArkanivyGame(Widget):
     def on_touch_down(self, touch):
         if touch.x>self.player.center_x-(self.player.width) and  touch.x<self.player.center_x+(self.player.width)  and  touch.y<self.player.center_y+(self.player.height/2) :
             self.sw=1
-        if touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
+        if not self.sb and touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
             self.serve_ball()
             self.sb=1
     def on_touch_move(self, touch):
