@@ -9,18 +9,15 @@ from kivy.properties import NumericProperty, ReferenceListProperty,\
 from kivy.vector import Vector
 from kivy.clock import Clock
 from kivy.uix.carousel import Carousel
-#from kivy.label import Label
 from kivy.uix.image import Image
 from kivy.animation import Animation
-#from plyer import accelerometer
-
 
 class ArkanivyBrick(Widget):
     m=650  #650  #100
     nx=130
     rx=90
     def var(self):
-    	self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
+        self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
         self.po={'1':20,'2':36,'3':12,'4':62}
         self.im=[]
         self.p=0
@@ -200,7 +197,8 @@ class ArkanivyBrick(Widget):
 
 class ArkanivyPaddle(Widget):
     score = NumericProperty(0)
-    level = ObjectProperty("Level 1")
+    total = NumericProperty(0)
+    level = ObjectProperty("...")
     sw=0
     g=0.5
     def bounce_ball(self, ball):
@@ -235,7 +233,6 @@ class ArkanivyGame(Widget):
     player = ObjectProperty(None)
     vida=3
     life=[]
-    #bricks =  ListProperty([])
     bricks= ArkanivyBrick()
     sw=0
     sb=0
@@ -249,8 +246,7 @@ class ArkanivyGame(Widget):
         self.mx=0
         self.my=100
 
-    def load_level(self,l):
-        
+    def load_level(self,l):  
         self.bricks.var()
         self.poi=int(self.bricks.po[l])
         f=self.bricks.dic[l]
@@ -258,14 +254,12 @@ class ArkanivyGame(Widget):
         for x in self.bricks.im:
             self.add_widget(x)
 
-    def load_im(self):
-        
+    def load_im(self):   
         self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
         self.life.append(Image(source='resorce/vida.png',x=25,y=self.height-100))
         self.life.append(Image(source='resorce/vida.png',x=50,y=self.height-100))
         for x in self.life:
             self.add_widget(x)
-
 
     def serve_ball(self, vel=(0, 4)):
         self.ball.center_x = self.player.center_x
@@ -273,7 +267,6 @@ class ArkanivyGame(Widget):
         self.ball.velocity = vel
 
     def update(self, dt):
-#<<<<<<< HEAD
         if not self.mn:
             self.ball.move()
             self.player.bounce_ball(self.ball)
@@ -283,6 +276,7 @@ class ArkanivyGame(Widget):
                     self.bricks.im[x].center_x=self.bricks.im[x].center_x+10000
                     self.bricks.im.pop(x)
                     self.player.score+=1
+                    self.player.total+=1
                     break
             if self.ball.top > self.top:
                 self.ball.velocity_y *= -1
@@ -304,14 +298,9 @@ class ArkanivyGame(Widget):
                 print "murio el puto"
                 return False
         else:
-            print 'aja'
             animation = Animation(pos=(200, 100), t='out_bounce')
             animation += Animation(pos=(100, 100), t='out_bounce')
             animation.start(self.i)
-
-#=======
-        
-#>>>>>>> 98af484f8b682752be56e7a2b0f30139ea58249e
 
     def returnBall(self):
         self.sb=0
@@ -327,6 +316,7 @@ class ArkanivyGame(Widget):
             self.sb=1
         if self.i.collide_point(touch.x,touch.y):
             self.load_level('1')
+            self.player.level="Level 1"
             self.load_im()
             self.remove_widget(self.i)
             self.mn=0
@@ -365,18 +355,9 @@ class ArkanivyApp(App):
 
 
     def build(self):
-#<<<<<<< HEAD
         game=ArkanivyGame()
         game.manu()
         Clock.schedule_interval(game.update, 1.0 / 60.0)
-        #print self.config.
-        
-        
-
-#=======
-        # game=self.level4()
-        # game.load_im()
-#>>>>>>> 98af484f8b682752be56e7a2b0f30139ea58249e
         return game
 
 if __name__ == '__main__':
