@@ -11,6 +11,7 @@ from kivy.clock import Clock
 from kivy.uix.carousel import Carousel
 #from kivy.label import Label
 from kivy.uix.image import Image
+from kivy.animation import Animation
 #from plyer import accelerometer
 
 
@@ -208,6 +209,13 @@ class ArkanivyGame(Widget):
     sb=0
     poi=NumericProperty(0)
 
+    def manu(self):
+        self.i=Image(source='resorce/1.png',x=0,y=100)
+        self.add_widget(self.i)
+        self.mn=1
+        self.mx=0
+        self.my=100
+
     def load_level(self,l):
         
         self.bricks.var()
@@ -232,30 +240,37 @@ class ArkanivyGame(Widget):
         self.ball.velocity = vel
 
     def update(self, dt):
-        self.ball.move()
-        self.player.bounce_ball(self.ball)
-        for x in range(len(self.bricks.im)):
-            if self.bricks.bounce_ball(self.ball,x):
-                self.remove_widget(self.bricks.im[x])
-                self.bricks.im[x].center_x=self.bricks.im[x].center_x+10000
-                self.bricks.im.pop(x)
-                self.player.score+=1
-                break
-        if self.ball.top > self.top:
-            self.ball.velocity_y *= -1
-        if self.ball.x < self.x or self.ball.x + self.ball.width > self.width:
-            self.ball.velocity_x *= -1
-        if self.ball.y < self.y:
-            self.returnBall()
-        if self.player.score>=self.poi:
-            aux=self.player.level.split(' ')
-            f=int(aux[1])
-            f+=1
-            self.load_level(str(f))
-            self.player.level="Level "+str(f)
-            self.player.score=0
-            self.returnBall()
-            #return False
+        if not self.mn:
+            self.ball.move()
+            self.player.bounce_ball(self.ball)
+            for x in range(len(self.bricks.im)):
+                if self.bricks.bounce_ball(self.ball,x):
+                    self.remove_widget(self.bricks.im[x])
+                    self.bricks.im[x].center_x=self.bricks.im[x].center_x+10000
+                    self.bricks.im.pop(x)
+                    self.player.score+=1
+                    break
+            if self.ball.top > self.top:
+                self.ball.velocity_y *= -1
+            if self.ball.x < self.x or self.ball.x + self.ball.width > self.width:
+                self.ball.velocity_x *= -1
+            if self.ball.y < self.y:
+                self.returnBall()
+            if self.player.score>=self.poi:
+                aux=self.player.level.split(' ')
+                f=int(aux[1])
+                f+=1
+                self.load_level(str(f))
+                self.player.level="Level "+str(f)
+                self.player.score=0
+                self.returnBall()
+                #return False
+        else:
+            print 'aja'
+            animation = Animation(pos=(200, 100), t='out_bounce')
+            animation += Animation(pos=(100, 100), t='out_bounce')
+            animation.start(self.i)
+
 
     def returnBall(self):
         self.sb=0
@@ -269,6 +284,10 @@ class ArkanivyGame(Widget):
         if not self.sb and touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
             self.serve_ball()
             self.sb=1
+        if self.i.collide_point(touch.x,touch.y):
+            self.load_level('1')
+            self.remove_widget(self.i)
+            self.mn=0
     def on_touch_move(self, touch):
         if self.sw:
             self.player.center_x = touch.x
@@ -276,6 +295,20 @@ class ArkanivyGame(Widget):
             self.ball.center_x=touch.x
     def on_touch_up(self,touch):
         self.sw=0
+class menu(Widget):
+    def Variables(self):
+        self.i=Image(source='resorce/1.png' ,x=100,y=200,size=(56, 26))
+        self.add_widget(self.i)
+        self.sw=0
+
+    def verific(self,dt):
+        if self.sw:
+            return False
+    def on_touch_down(self,touch):
+        if self.i.collide_point(touch.x,touch.y):
+            self.sw=1
+            print self.app
+            print 'aja'
 
 class ArkanivyApp(App):
     def level1(self):
@@ -302,9 +335,15 @@ class ArkanivyApp(App):
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
 
+
     def build(self):
-        game=self.level1()
-        game.load_im()
+        game=ArkanivyGame()
+        game.manu()
+        Clock.schedule_interval(game.update, 1.0 / 60.0)
+        #print self.config.
+        
+        
+
         return game
 
 if __name__ == '__main__':
