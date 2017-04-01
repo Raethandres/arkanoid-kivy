@@ -11,6 +11,7 @@ from kivy.clock import Clock
 from kivy.uix.carousel import Carousel
 #from kivy.label import Label
 from kivy.uix.image import Image
+from kivy.uix.screenmanager import ScreenManager, Screen
 #from plyer import accelerometer
 
 
@@ -18,24 +19,26 @@ class ArkanivyBrick(Widget):
 
     def var(self):
     	self.dic={'1':self.level1,'2':self.level2,'4':self.level4}
-        self.po={'1':3,'2':9}
+        self.po={'1':48,'2':9}
         self.im=[]
         self.p=0
 
     def level1(self):
-        y=2
+        y=1
         if self.im:
             self.im=[]
         else:
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=500 ,y=300,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=556 ,y=300,size=(56, 26)))
-            # self.im.append(Image(source=str(y)+'.png' ,x=612 ,y=300,size=(56, 26)))
-            # self.im.append(Image(source=str(y)+'.png' ,x=444 ,y=300,size=(56, 26)))
-            # self.im.append(Image(source=str(y)+'.png' ,x=388 ,y=300,size=(56, 26)))
-            # self.im.append(Image(source=str(y)+'.png' ,x=332 ,y=300,size=(56, 26)))
-            # self.im.append(Image(source=str(y)+'.png' ,x=276 ,y=300,size=(56, 26)))
-            # self.im.append(Image(source=str(y)+'.png' ,x=220 ,y=300,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=164 ,y=300,size=(56, 26)))
+            px=0
+            py=300
+            for x in range(13):
+                for z in range(4):
+                    self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px ,y=py,size=(56, 26)))
+                    py+=30
+                    y+=1
+                px+=60
+                py=300
+                y=1
+            
         return self.im
 
     def level2(self):
@@ -149,22 +152,12 @@ class ArkanivyGame(Widget):
     poi=NumericProperty(0)
 
     def load_level(self,l):
-        
         self.bricks.var()
         self.poi=int(self.bricks.po[l])
         f=self.bricks.dic[l]
         f()
         for x in self.bricks.im:
             self.add_widget(x)
-
-    def load_im(self):
-        self.life=[]
-        self.life.append(Image(source='/resorce/vida.png',x=0,y=430))
-        self.life.append(Image(source='/resorce/vida.png',x=25,y=430))
-        self.life.append(Image(source='/resorce/vida.png',x=50,y=430))
-        for x in self.life:
-            self.add_widget(x)
-     #   self.lifes=3;
 
     def serve_ball(self, vel=(0, 1)):
         #print 'serve'
@@ -213,6 +206,7 @@ class ArkanivyGame(Widget):
             self.load_level(str(f))
             self.player.Level="Level "+str(f)
             self.player.score=0
+
             # self.bricks[0].center_x=100
             # self.bricks[0].center_y=100
             # self.returnBall()
@@ -227,6 +221,8 @@ class ArkanivyGame(Widget):
         self.ball.velocity = (0,0)
 
     def on_touch_down(self, touch):
+        if self.player.collide_point(touch.x, touch.y):
+            print 'aa'
         if touch.x>self.player.center_x-(self.player.width) and  touch.x<self.player.center_x+(self.player.width)  and  touch.y<self.player.center_y+(self.player.height/2) :
             self.sw=1
         if not self.sb and touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
@@ -243,6 +239,14 @@ class ArkanivyGame(Widget):
 
 
 class ArkanivyApp(App):
+    # img=Image(source='resorce/1.png' ,x=200 ,y=512,size=(56, 26))
+    # sm= ScreenManager()
+    # s=Screen()
+
+    # def on_touch_down(self,touch):
+    #     if self.img.collide_point(touch.x,touch.y):
+    #         self.sm.current = '2'
+
     def level1(self):
         game = ArkanivyGame()
         game.load_level('1')
@@ -263,8 +267,20 @@ class ArkanivyApp(App):
         game.load_level('4')
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
+
     def build(self):
+
+        
         game=self.level1()
+        # game1=self.level2()
+        # s=Screen(name='1')
+        # s.add_widget(game)
+        # s.add_widget(self.img)
+        # s1=Screen(name='2')
+        # s1.add_widget(game1)
+        # self.sm.add_widget(s)
+        # self.sm.add_widget(s1)
+
         #game=self.level2()
         
         return game
