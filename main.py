@@ -253,7 +253,8 @@ class ArkanivyApp(App):
         Clock.schedule_interval(game.update, 1.0 / 60.0)
         return game
     def build(self):
-        game=self.level4()
+        game=ArkanivyGame()
+        game.load_level('4')
         #game=self.level2()
         
         return game
