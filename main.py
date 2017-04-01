@@ -207,7 +207,11 @@ class ArkanivyGame(Widget):
             self.returnBall()
 
         if self.player.score>=self.poi:
-            self.load_level('2')
+            aux=self.player.level.split(' ')
+            f=int(aux[1])
+            f+=1
+            self.load_level(str(f))
+            self.player.Level="Level "+str(f)
             self.player.score=0
             # self.bricks[0].center_x=100
             # self.bricks[0].center_y=100
