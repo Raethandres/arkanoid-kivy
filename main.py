@@ -237,6 +237,7 @@ class ArkanivyGame(Widget):
     sw=0
     sb=0
     poi=NumericProperty(0)
+    info="escoja el nivel"
 
 
     def manu(self):
@@ -289,6 +290,8 @@ class ArkanivyGame(Widget):
                 self.ball.velocity_x *= -1
             if self.ball.y < self.y:
                 self.life[self.vida-1].center_x=self.life[self.vida-1].center_x+10000
+                self.remove_widget(self.life[self.vida-1])
+                self.life.pop()
                 self.vida-=1
                 self.returnBall()
             if self.player.score>=self.poi:
@@ -301,9 +304,21 @@ class ArkanivyGame(Widget):
                 self.returnBall()
             if self.vida==0:
                 print "murio el puto"
-                return False
+                self.clear()
+                self.manu()
         else:
             print "aja"
+    def clear(self):
+        for x in self.bricks.im:
+            print 'removido'
+            self.remove_widget(x)
+        self.bricks.im[:]=[]
+        self.vida=3
+        self.player.score=0
+        self.player.total=0
+        self.info='has perdido'
+
+
     def returnBall(self):
         self.sb=0
         self.ball.center_x = self.player.center_x
@@ -325,6 +340,7 @@ class ArkanivyGame(Widget):
                 self.load_im()
                 for t in self.b:
                     self.remove_widget(t)
+                self.b[:]=[]
                 self.mn=0
                 break
 
