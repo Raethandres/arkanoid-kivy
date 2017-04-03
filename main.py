@@ -243,10 +243,10 @@ class ArkanivyGame(Widget):
 
     def manu(self):
         self.b=[]
-        self.b.append(Image(source='resorce/boton1.jpg',x=0,y=100))
-        self.b.append(Image(source='resorce/boton2.jpg',x=100,y=100))
-        self.b.append(Image(source='resorce/boton3.jpg',x=100,y=0))
-        self.b.append(Image(source='resorce/boton4.jpg',x=0,y=0))
+        self.b.append(Image(source='resorce/boton1.png',x=0,y=100))
+        self.b.append(Image(source='resorce/boton2.png',x=100,y=100))
+        self.b.append(Image(source='resorce/boton3.png',x=100,y=0))
+        self.b.append(Image(source='resorce/boton4.png',x=0,y=0))
         for x in self.b:
             self.add_widget(x)
         self.mn=1
