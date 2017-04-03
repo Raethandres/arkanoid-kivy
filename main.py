@@ -301,9 +301,21 @@ class ArkanivyGame(Widget):
                 self.returnBall()
             if self.vida==0:
                 print "murio el puto"
-                return False
+                self.clear()
+                self.manu()
+                #return False
         else:
             print "aja"
+
+
+    def clear(self):
+    	for x in self.bricks.im:
+    		self.remove_widget(x)
+    	self.bricks.im[:]=[]
+    	self.vida=3
+    	self.score=0
+    	self.total=0
+
     def returnBall(self):
         self.sb=0
         self.ball.center_x = self.player.center_x
@@ -326,6 +338,7 @@ class ArkanivyGame(Widget):
                 for t in self.b:
                     self.remove_widget(t)
                 self.mn=0
+                self.b[:]=[]
                 break
 
     def on_touch_move(self, touch):
