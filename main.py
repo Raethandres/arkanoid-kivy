@@ -199,6 +199,7 @@ class ArkanivyPaddle(Widget):
     score = NumericProperty(0)
     total = NumericProperty(0)
     level = ObjectProperty("...")
+    info=ObjectProperty("ecoje tu nivel")
     sw=0
     g=0.5
     def bounce_ball(self, ball):
@@ -237,6 +238,7 @@ class ArkanivyGame(Widget):
     sw=0
     sb=0
     poi=NumericProperty(0)
+    
 
 
     def manu(self):
@@ -289,6 +291,8 @@ class ArkanivyGame(Widget):
                 self.ball.velocity_x *= -1
             if self.ball.y < self.y:
                 self.life[self.vida-1].center_x=self.life[self.vida-1].center_x+10000
+                self.remove_widget(self.life[self.vida-1])
+                self.life.pop()
                 self.vida-=1
                 self.returnBall()
             if self.player.score>=self.poi:
@@ -303,18 +307,19 @@ class ArkanivyGame(Widget):
                 print "murio el puto"
                 self.clear()
                 self.manu()
-                #return False
+
         else:
             print "aja"
-
-
     def clear(self):
-    	for x in self.bricks.im:
-    		self.remove_widget(x)
-    	self.bricks.im[:]=[]
-    	self.vida=3
-    	self.score=0
-    	self.total=0
+        for x in self.bricks.im:
+            print 'removido'
+            self.remove_widget(x)
+        self.bricks.im[:]=[]
+        self.vida=3
+        self.player.score=0
+        self.player.total=0
+        self.player.info='has perdido'
+
 
     def returnBall(self):
         self.sb=0
@@ -332,13 +337,16 @@ class ArkanivyGame(Widget):
         for bt in self.b:
             g+=1
             if bt.collide_point(touch.x,touch.y):
+                self.player.info=' '
                 self.load_level(str(g+1))
                 self.player.level="Level "+str(g+1)
                 self.load_im()
                 for t in self.b:
                     self.remove_widget(t)
+                self.b[:]=[]
                 self.mn=0
                 self.b[:]=[]
+                #self.player.info=' '
                 break
 
     def on_touch_move(self, touch):
