@@ -13,6 +13,7 @@ from kivy.uix.image import Image
 from kivy.animation import Animation
 
 class ArkanivyBrick(Widget):
+
     def var(self,xx,yy):
         self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
         self.po={'1':45,'2':36,'3':48,'4':62}
@@ -20,7 +21,6 @@ class ArkanivyBrick(Widget):
         self.p=0
         self.pxx=xx
         self.pyy=yy
-
     def level1(self):
         y = 1
         if self.im:
@@ -96,30 +96,30 @@ class ArkanivyBrick(Widget):
         else:
             px = (self.pxx/2)-305
             py = (self.pyy/2)+186            
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px ,y=py,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+61 ,y=py,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py,size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py,size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py,size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*7) ,y=py,size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*8) ,y=py,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*9) ,y=py,size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px ,y=py-(31*1),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+61 ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*1),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*1),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*7) ,y=py-(31*1),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*8) ,y=py-(31*1),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*9) ,y=py-(31*1),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px ,y=py-(31*10),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*10),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+61 ,y=py-(31*10),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*10),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*10),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*10),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*7) ,y=py-(31*10),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*8) ,y=py-(31*10),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*9) ,y=py-(31*10),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px ,y=py-(31*11),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*11),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+61 ,y=py-(31*11),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*11),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*7) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*8) ,y=py-(31*11),size=(56, 26)))
-            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*9) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(m)+'.png' ,x=px+(61*2) ,y=py-(31*2),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(m)+'.png' ,x=px+(61*3) ,y=py-(31*2),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(m)+'.png' ,x=px+(61*6) ,y=py-(31*2),size=(56, 26)))
@@ -219,12 +219,18 @@ class ArkanivyBrick(Widget):
 
         return self.im
 
+    def getpx(self):
+    	return self.pxx
+
+    def getpy(self):
+    	return self.pyy
+
     def bounce_ball(self,ball,index):
         if self.im[index].collide_widget(ball):
             vx, vy = ball.velocity
             offset = 0
             bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.02
+            vel = bounced * 1.004
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
                     ball.velocity = vel.x+1, vel.y+offset
@@ -244,7 +250,7 @@ class ArkanivyPaddle(Widget):
     score = NumericProperty(0)
     total = NumericProperty(0)
     level = ObjectProperty("...")
-    info = ObjectProperty("Press the level.")
+    info = ObjectProperty("Press level")
     sw = 0
     g = 0.5
     def bounce_ball(self, ball):
@@ -252,7 +258,7 @@ class ArkanivyPaddle(Widget):
             vx, vy = ball.velocity
             offset = 0
             bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.02
+            vel = bounced * 1.004
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
                     ball.velocity = vel.x+1, vel.y+offset
@@ -277,19 +283,18 @@ class ArkanivyBall(Widget):
 class ArkanivyGame(Widget):
     ball = ObjectProperty(None)
     player = ObjectProperty(None)
-    vida = 3
-    life = []
+    score = NumericProperty(0)
     bricks = ArkanivyBrick()
+    poi = NumericProperty(0)
+    vida = 3      
     sw = 0
     sb = 0
-    poi = NumericProperty(0)
-    
     def manu(self):
         self.b = []
-        self.b.append(Image(source='resorce/boton1.png',x=0,y=100))
-        self.b.append(Image(source='resorce/boton2.png',x=100,y=100))
-        self.b.append(Image(source='resorce/boton3.png',x=100,y=0))
-        self.b.append(Image(source='resorce/boton4.png',x=0,y=0))
+        self.b.append(Image(source='resorce/boton1.png',x=50,y=self.player.top+200))
+        self.b.append(Image(source='resorce/boton2.png',x=50+110,y=self.player.top+200))
+        self.b.append(Image(source='resorce/boton3.png',x=50,y=self.player.top+200-110))
+        self.b.append(Image(source='resorce/boton4.png',x=50+110,y=self.player.top+200-110))
         for x in self.b:
             self.add_widget(x)
         self.mn = 1
@@ -304,14 +309,15 @@ class ArkanivyGame(Widget):
         for x in self.bricks.im:
             self.add_widget(x)
 
-    def load_im(self):   
+    def load_im(self):
+    	self.life = []   
         self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
         self.life.append(Image(source='resorce/vida.png',x=25,y=self.height-100))
         self.life.append(Image(source='resorce/vida.png',x=50,y=self.height-100))
         for x in self.life:
             self.add_widget(x)
 
-    def serve_ball(self, vel = (0, 4)):
+    def serve_ball(self, vel = (0, 8)):
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = vel
@@ -341,26 +347,35 @@ class ArkanivyGame(Widget):
             if self.player.score >= self.poi:
                 aux = self.player.level.split(' ')
                 f = int(aux[1])
-                f += 1
-                self.load_level(str(f))
-                self.player.level = "Level "+str(f)
-                self.player.score = 0
-                self.returnBall()
+                if f == 4:
+                	self.returnBall()
+                	self.clear(0)
+                	self.manu()
+                else:
+	                f += 1
+	                self.load_level(str(f))
+	                self.player.level = "Level "+str(f)
+	                self.player.score = 0
+	                self.returnBall()
             if self.vida == 0:
-                self.clear()
+                self.clear(1)
                 self.manu()
 
         else:
             print "aja"
-    def clear(self):
+    def clear(self,sw):
         for x in self.bricks.im:
             print 'removido'
             self.remove_widget(x)
         self.bricks.im[:] = []
         self.vida = 3
-        self.player.score = 0
-        self.player.total = 0
-        self.player.info = "Game Over"
+        #self.player.score = 0
+        #self.player.total = 0
+        self.player.level = "..."
+        if sw == 1:
+        	self.player.info = "Game Over"
+        else:
+        	self.player.info = "Win"
 
     def returnBall(self):
         self.sb=0
@@ -380,6 +395,8 @@ class ArkanivyGame(Widget):
             if bt.collide_point(touch.x,touch.y):
                 self.player.info = ' '
                 self.load_level(str(g+1))
+                self.player.total = 0
+                self.player.score = 0
                 self.player.level = "Level "+str(g+1)
                 self.load_im()
                 for t in self.b:
