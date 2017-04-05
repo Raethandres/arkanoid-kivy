@@ -18,6 +18,7 @@ class ArkanivyBrick(Widget):
         self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
         self.po={'1':45,'2':36,'3':48,'4':62}
         self.im=[]
+        self.py=[]
         self.p=0
         self.pxx=xx
         self.pyy=yy
@@ -217,13 +218,9 @@ class ArkanivyBrick(Widget):
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*11),size=(56, 26)))
 
+            self.py.append(Image(source='resorce/py1.png' ,x=180,y=self.pyy+100,size=(36, 100)))
+            self.py.append(Image(source='resorce/py2.png' ,x=380,y=pself.pyy+100,size=(36, 100)))
         return self.im
-
-    def getpx(self):
-    	return self.pxx
-
-    def getpy(self):
-    	return self.pyy
 
     def bounce_ball(self,ball,index):
         if self.im[index].collide_widget(ball):
@@ -233,14 +230,14 @@ class ArkanivyBrick(Widget):
             vel = bounced * 1.004
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
-                    ball.velocity = vel.x+1, vel.y+offset
+                    ball.velocity = vel.x+5, vel.y+offset
                 else:
-                    ball.velocity = vel.x+0.5, vel.y+offset
+                    ball.velocity = vel.x+2.5, vel.y+offset
             elif ball.center_x<self.center_x:
                 if vel.x>0.5:
-                    ball.velocity = vel.x-1, vel.y+offset
+                    ball.velocity = vel.x-5, vel.y+offset
                 else:
-                    ball.velocity = vel.x-0.5, vel.y+offset
+                    ball.velocity = vel.x-2.5, vel.y+offset
             else:
                 ball.velocity = vel.x, vel.y+offset
             return True
@@ -261,14 +258,14 @@ class ArkanivyPaddle(Widget):
             vel = bounced * 1.004
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
-                    ball.velocity = vel.x+1, vel.y+offset
+                    ball.velocity = vel.x+3, vel.y+offset
                 else:
-                    ball.velocity = vel.x+0.5, vel.y+offset
+                    ball.velocity = vel.x+1.5, vel.y+offset
             elif ball.center_x<self.center_x:
                 if vel.x>0.5:
-                    ball.velocity = vel.x-1, vel.y+offset
+                    ball.velocity = vel.x-3, vel.y+offset
                 else:
-                    ball.velocity = vel.x-0.5, vel.y+offset
+                    ball.velocity = vel.x-1.5, vel.y+offset
             else:
                 ball.velocity = vel.x, vel.y+offset
 
@@ -309,6 +306,11 @@ class ArkanivyGame(Widget):
         for x in self.bricks.im:
             self.add_widget(x)
 
+    def load_home(self):
+        self.home = []
+        self.home.append(Image(source='resorce/home.png',x=(self.width/2)-50,y=self.height-90))
+        for x in self.home:
+            self.add_widget(x)
     def load_im(self):
     	self.life = []   
         self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
@@ -368,14 +370,17 @@ class ArkanivyGame(Widget):
             print 'removido'
             self.remove_widget(x)
         self.bricks.im[:] = []
+        for xv in self.life:
+            self.remove_widget(xv)
+        self.life[:] = []
         self.vida = 3
-        #self.player.score = 0
-        #self.player.total = 0
         self.player.level = "..."
         if sw == 1:
         	self.player.info = "Game Over"
-        else:
+        elif sw == 0:
         	self.player.info = "Win"
+        else:
+            self.player.info = "Press level"
 
     def returnBall(self):
         self.sb=0
@@ -384,6 +389,7 @@ class ArkanivyGame(Widget):
         self.ball.velocity = (0,0)
 
     def on_touch_down(self, touch):
+        self.load_home()
         if touch.x>self.player.center_x-(self.player.width) and  touch.x<self.player.center_x+(self.player.width)  and  touch.y<self.player.center_y+(self.player.height/2) :
             self.sw = 1
         if not self.sb and touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
@@ -405,6 +411,15 @@ class ArkanivyGame(Widget):
                 self.mn = 0
                 self.b[:] = []
                 break
+        for ho in self.home:
+            if ho.collide_point(touch.x,touch.y):
+                self.player.info = ' '
+                self.player.total = 0
+                self.player.score = 0
+                self.returnBall()
+                self.clear(3)
+                self.manu()
+                
     def on_touch_move(self, touch):
         if self.sw:
             self.player.center_x = touch.x
