@@ -16,7 +16,7 @@ class ArkanivyBrick(Widget):
 
     def var(self,xx,yy):
         self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
-        self.po={'1':45,'2':36,'3':48,'4':62}
+        self.po={'1':45,'2':36,'3':48,'4':124}
         self.im=[]
         self.p=0
         self.pxx=xx
@@ -216,6 +216,68 @@ class ArkanivyBrick(Widget):
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*11),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*0),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*3) ,y=py-(31*0),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*0),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*0),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*1),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*2),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*2),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*3) ,y=py-(31*2),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*2),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*2),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*3),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*3),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*3),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*4),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*4),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*3) ,y=py-(31*4),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*4),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*4),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*4),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*7) ,y=py-(31*4),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*0) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*2) ,y=py-(31*5),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*3) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*4) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*5) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*7) ,y=py-(31*5),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*0) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*2) ,y=py-(31*6),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*7) ,y=py-(31*6),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*0) ,y=py-(31*7),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*7),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*2) ,y=py-(31*7),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*7),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*7),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*7),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*7),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(y)+'.png' ,x=px+(61*1) ,y=py-(31*8),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*2) ,y=py-(31*8),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*8),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*2) ,y=py-(31*9),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*9),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*9),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*9),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*9),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*2) ,y=py-(31*10),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*10),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*10),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*6) ,y=py-(31*10),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*2) ,y=py-(31*11),size=(56, 26)))       
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*11),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*11),size=(56, 26)))
+            self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*11),size=(56, 26)))
         return self.im
 
     def bounce_ball(self,ball,index):
@@ -226,14 +288,14 @@ class ArkanivyBrick(Widget):
             vel = bounced * 1.004
             if ball.center_x>self.center_x:
                 if vel.x<-0.5:
-                    ball.velocity = vel.x+5, vel.y+offset
+                    ball.velocity = vel.x+4, vel.y+offset
                 else:
-                    ball.velocity = vel.x+2.5, vel.y+offset
+                    ball.velocity = vel.x+2, vel.y+offset
             elif ball.center_x<self.center_x:
                 if vel.x>0.5:
-                    ball.velocity = vel.x-5, vel.y+offset
+                    ball.velocity = vel.x-4, vel.y+offset
                 else:
-                    ball.velocity = vel.x-2.5, vel.y+offset
+                    ball.velocity = vel.x-2, vel.y+offset
             else:
                 ball.velocity = vel.x, vel.y+offset
             return True
@@ -283,6 +345,7 @@ class ArkanivyGame(Widget):
     sw = 0
     sb = 0
     h=0
+    mm=1
     def manu(self):
         self.b = []
         self.b.append(Image(source='resorce/boton1.png',x=50,y=self.player.top+200))
@@ -318,18 +381,32 @@ class ArkanivyGame(Widget):
         self.ball.center_x = self.player.center_x
         self.ball.center_y = self.player.center_y+30
         self.ball.velocity = vel
+    
+    def move_blocks(self):
+        if self.mm:
+            for x in range(len(self.bricks.im)):
+              self.bricks.im[x].center_x = self.bricks.im[x].center_x + 1
+              if self.bricks.im[x].center_x>=self.height+(self.height/2):
+                   self.mm=0
+        else:
+            for x in range(len(self.bricks.im)):
+              self.bricks.im[x].center_x = self.bricks.im[x].center_x -1
+              if self.bricks.im[x].center_x<0:
+                   self.mm=1
+
 
     def update(self, dt):
         if not self.mn:
             self.ball.move()
+            self.move_blocks()
             self.player.bounce_ball(self.ball)
             for x in range(len(self.bricks.im)):
                 if self.bricks.bounce_ball(self.ball,x):
                     self.remove_widget(self.bricks.im[x])
                     self.bricks.im[x].center_x = self.bricks.im[x].center_x + 10000
                     self.bricks.im.pop(x)
-                    self.player.score += 100
-                    self.player.total += 100
+                    self.player.score += 1
+                    self.player.total += 1
                     break
             if self.ball.top > self.top:
                 self.ball.velocity_y *= -1
@@ -355,6 +432,8 @@ class ArkanivyGame(Widget):
 	                self.player.score = 0
 	                self.returnBall()
             if self.vida == 0:
+                self.remove_widget(self.ho)
+                self.h=0
                 self.clear(1)
                 self.manu()
 
