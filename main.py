@@ -18,7 +18,6 @@ class ArkanivyBrick(Widget):
         self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
         self.po={'1':45,'2':36,'3':48,'4':62}
         self.im=[]
-        self.py=[]
         self.p=0
         self.pxx=xx
         self.pyy=yy
@@ -217,9 +216,6 @@ class ArkanivyBrick(Widget):
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*11),size=(56, 26)))
-
-            self.py.append(Image(source='resorce/py1.png' ,x=180,y=self.pyy+100,size=(36, 100)))
-            self.py.append(Image(source='resorce/py2.png' ,x=380,y=pself.pyy+100,size=(36, 100)))
         return self.im
 
     def bounce_ball(self,ball,index):
@@ -333,8 +329,8 @@ class ArkanivyGame(Widget):
                     self.remove_widget(self.bricks.im[x])
                     self.bricks.im[x].center_x = self.bricks.im[x].center_x + 10000
                     self.bricks.im.pop(x)
-                    self.player.score += 1
-                    self.player.total += 1
+                    self.player.score += 100
+                    self.player.total += 100
                     break
             if self.ball.top > self.top:
                 self.ball.velocity_y *= -1
