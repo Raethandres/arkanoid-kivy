@@ -30,7 +30,7 @@ class ArkanivyBrick(Widget):
             py = (self.pyy/2)
             for x in range(9):
                 if x%2 == 0:
-                    py = (self.pyy/2)+50#
+                    py = (self.pyy/2)+50
                 else:
                     py = py-300
                 for z in range(5):
@@ -286,18 +286,19 @@ class ArkanivyBrick(Widget):
             offset = 0
             bounced = Vector(vx, -1 * vy)
             vel = bounced * 1.004
-            if ball.center_x>self.center_x:
-                if vel.x<-0.5:
-                    ball.velocity = vel.x+4, vel.y+offset
-                else:
-                    ball.velocity = vel.x+2, vel.y+offset
-            elif ball.center_x<self.center_x:
-                if vel.x>0.5:
-                    ball.velocity = vel.x-4, vel.y+offset
-                else:
-                    ball.velocity = vel.x-2, vel.y+offset
-            else:
-                ball.velocity = vel.x, vel.y+offset
+            ball.velocity = vel.x, vel.y+offset
+            # if ball.center_x>self.center_x:
+            #     if vel.x<-0.5:
+            #         ball.velocity = vel.x+4, vel.y+offset
+            #     else:
+            #         ball.velocity = vel.x+2, vel.y+offset
+            # elif ball.center_x<self.center_x:
+            #     if vel.x>0.5:
+            #         ball.velocity = vel.x-4, vel.y+offset
+            #     else:
+            #         ball.velocity = vel.x-2, vel.y+offset
+            # else:
+            #     ball.velocity = vel.x, vel.y+offset
             return True
         return False
  
