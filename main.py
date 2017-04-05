@@ -11,17 +11,19 @@ from kivy.clock import Clock
 from kivy.uix.carousel import Carousel
 from kivy.uix.image import Image
 from kivy.animation import Animation
+import random
 
 class ArkanivyBrick(Widget):
-
     def var(self,xx,yy):
         self.dic={'1':self.level1,'2':self.level2,'3':self.level3,'4':self.level4}
         self.po={'1':45,'2':36,'3':48,'4':124}
         self.im=[]
+        self.snake=[]
         self.p=0
         self.pxx=xx
         self.pyy=yy
     def level1(self):
+    	self.p=1
         y = 1
         if self.im:
             self.im = []
@@ -42,6 +44,7 @@ class ArkanivyBrick(Widget):
         return self.im
 
     def level2(self):
+    	self.p=2
         y = 4
         x = 3
         px = (self.pxx/2)-274
@@ -88,6 +91,7 @@ class ArkanivyBrick(Widget):
         return self.im
 
     def level3(self):
+    	self.p=3
         y = 1
         m = 2
         n = 3
@@ -147,6 +151,7 @@ class ArkanivyBrick(Widget):
         return self.im
 
     def level4(self):
+    	self.p=4
         y = 6
         x = 1
         if self.im:
@@ -278,6 +283,11 @@ class ArkanivyBrick(Widget):
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*3) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*4) ,y=py-(31*11),size=(56, 26)))
             self.im.append(Image(source='resorce/'+str(x)+'.png' ,x=px+(61*5) ,y=py-(31*11),size=(56, 26)))
+
+
+            self.snake.append(Image(source='resorce/py1.png' ,x=random.randint(100, self.pxx)-50,y=self.pyy*2,size=(18, 50)))
+            self.snake.append(Image(source='resorce/py2.png' ,x=random.randint(100, self.pxx)-50 ,y=self.pyy+60,size=(18, 50)))
+
         return self.im
 
     def bounce_ball(self,ball,index):
@@ -328,6 +338,7 @@ class ArkanivyPaddle(Widget):
             else:
                 ball.velocity = vel.x, vel.y+offset
 
+
 class ArkanivyBall(Widget):
     velocity_x = NumericProperty(0)
     velocity_y = NumericProperty(0)
@@ -366,6 +377,9 @@ class ArkanivyGame(Widget):
         f()
         for x in self.bricks.im:
             self.add_widget(x)
+        if l == '4':
+        	for sx in self.bricks.snake:
+        		self.add_widget(sx)
 
     def load_home(self):
         self.ho=Image(source='resorce/home.png',x=(self.width/2)-50,y=self.height-90)
@@ -373,8 +387,8 @@ class ArkanivyGame(Widget):
     def load_im(self):
     	self.life = []   
         self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
-        self.life.append(Image(source='resorce/vida.png',x=25,y=self.height-100))
-        self.life.append(Image(source='resorce/vida.png',x=50,y=self.height-100))
+        self.life.append(Image(source='resorce/vida.png',x=22,y=self.height-100))
+        self.life.append(Image(source='resorce/vida.png',x=45,y=self.height-100))
         for x in self.life:
             self.add_widget(x)
 
@@ -394,7 +408,26 @@ class ArkanivyGame(Widget):
               self.bricks.im[x].center_x = self.bricks.im[x].center_x -1
               if self.bricks.im[x].center_x<0:
                    self.mm=1
-
+        if self.bricks.p == 4:
+        	for x in range(len(self.bricks.snake)):
+        		self.bricks.snake[x].center_y=self.bricks.snake[x].center_y-4
+        		if self.player.collide_widget(self.bricks.snake[x]):
+        			self.bricks.snake[x].center_y=self.height+500
+        			self.bricks.snake[x].center_x=random.randint(100, self.width)-50
+        			self.vida -= 1
+        			self.remove_widget(self.life[self.vida])
+		           	self.life.pop()
+        			if self.vida == 0:
+        				self.h=0
+        				self.player.info = ' '
+        				self.remove_widget(self.ho)
+        				self.returnBall()
+        				self.clear(3)
+        				self.manu()
+        				break			
+        		elif self.bricks.snake[x].center_y<-40:
+        			self.bricks.snake[x].center_y=self.height+500
+        			self.bricks.snake[x].center_x=random.randint(100, self.width)-50
 
     def update(self, dt):
         if not self.mn:
@@ -445,9 +478,13 @@ class ArkanivyGame(Widget):
             print 'removido'
             self.remove_widget(x)
         self.bricks.im[:] = []
+        for s in self.bricks.snake:
+            self.remove_widget(s)
+        self.bricks.snake[:] = []
         for xv in self.life:
             self.remove_widget(xv)
         self.life[:] = []
+
         self.vida = 3
         self.player.level = "..."
         if sw == 1:
