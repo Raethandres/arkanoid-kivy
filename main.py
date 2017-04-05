@@ -282,6 +282,7 @@ class ArkanivyGame(Widget):
     vida = 3      
     sw = 0
     sb = 0
+    h=0
     def manu(self):
         self.b = []
         self.b.append(Image(source='resorce/boton1.png',x=50,y=self.player.top+200))
@@ -303,10 +304,8 @@ class ArkanivyGame(Widget):
             self.add_widget(x)
 
     def load_home(self):
-        self.home = []
-        self.home.append(Image(source='resorce/home.png',x=(self.width/2)-50,y=self.height-90))
-        for x in self.home:
-            self.add_widget(x)
+        self.ho=Image(source='resorce/home.png',x=(self.width/2)-50,y=self.height-90)
+        self.add_widget(self.ho)
     def load_im(self):
     	self.life = []   
         self.life.append(Image(source='resorce/vida.png',x=0,y=self.height-100))
@@ -385,7 +384,7 @@ class ArkanivyGame(Widget):
         self.ball.velocity = (0,0)
 
     def on_touch_down(self, touch):
-        self.load_home()
+        
         if touch.x>self.player.center_x-(self.player.width) and  touch.x<self.player.center_x+(self.player.width)  and  touch.y<self.player.center_y+(self.player.height/2) :
             self.sw = 1
         if not self.sb and touch.x>self.ball.center_x-(self.ball.width) and  touch.x<self.ball.center_x+(self.ball.width) and touch.y>self.ball.center_y-(self.ball.height/2) and  touch.y<self.ball.center_y+(self.ball.height/2) :
@@ -406,15 +405,18 @@ class ArkanivyGame(Widget):
                 self.b[:] = []
                 self.mn = 0
                 self.b[:] = []
+                self.load_home()
+                self.h=1
                 break
-        for ho in self.home:
-            if ho.collide_point(touch.x,touch.y):
-                self.player.info = ' '
-                self.player.total = 0
-                self.player.score = 0
-                self.returnBall()
-                self.clear(3)
-                self.manu()
+        if self.h and self.ho.collide_point(touch.x,touch.y):
+        	self.h=0
+        	self.player.info = ' '
+        	self.player.total = 0
+        	self.player.score = 0
+        	self.remove_widget(self.ho)
+        	self.returnBall()
+        	self.clear(3)
+        	self.manu()
                 
     def on_touch_move(self, touch):
         if self.sw:
