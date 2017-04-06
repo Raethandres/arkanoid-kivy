@@ -386,9 +386,9 @@ class ArkanivyGame(Widget):
         self.add_widget(self.ho)
     def load_im(self):
     	self.life = []   
-        self.life.append(Image(source='resorce/vida.png',x=5,y=self.height-40,size=(17, 16)))
-        self.life.append(Image(source='resorce/vida.png',x=27,y=self.height-40,size=(17, 16)))
-        self.life.append(Image(source='resorce/vida.png',x=49,y=self.height-40,size=(17, 16)))
+        self.life.append(Image(source='resorce/vida.png',x=5,y=self.height-50,size=(17, 16)))
+        self.life.append(Image(source='resorce/vida.png',x=27,y=self.height-50,size=(17, 16)))
+        self.life.append(Image(source='resorce/vida.png',x=49,y=self.height-50,size=(17, 16)))
         for x in self.life:
             self.add_widget(x)
 
