@@ -398,12 +398,12 @@ class ArkanivyGame(Widget):
         self.ball.velocity = vel
     
     def move_blocks(self):
-        if self.mm:
+        if self.mm and self.bricks.p == 4:
             for x in range(len(self.bricks.im)):
               self.bricks.im[x].center_x = self.bricks.im[x].center_x + 1
               if self.bricks.im[x].center_x>=self.width+(self.width/2):
                    self.mm=0
-        else:
+        elif self.bricks.p == 4:
             for x in range(len(self.bricks.im)):
               self.bricks.im[x].center_x = self.bricks.im[x].center_x -1
               if self.bricks.im[x].center_x<0:
@@ -422,7 +422,7 @@ class ArkanivyGame(Widget):
         				self.player.info = ' '
         				self.remove_widget(self.ho)
         				self.returnBall()
-        				self.clear(3)
+        				self.clear(1)
         				self.manu()
         				break			
         		elif self.bricks.snake[x].center_y<-40:
@@ -544,34 +544,12 @@ class ArkanivyGame(Widget):
         self.sw=0
 
 class ArkanivyApp(App):
-    def level1(self):
-        game = ArkanivyGame()
-        game.load_level('1')
-        Clock.schedule_interval(game.update, 1.0 / 60.0)
-        return game
-
-    def level2(self):
-        game = ArkanivyGame()
-        game.load_level('2')
-        Clock.schedule_interval(game.update, 1.0 / 60.0)
-        return game
-
-    def level3(self):
-        game = ArkanivyGame()
-        game.load_level('3')
-        Clock.schedule_interval(game.update, 1.0 / 60.0)
-        return game
-
-    def level4(self):
-        game = ArkanivyGame()
-        game.load_level('4')
-        Clock.schedule_interval(game.update, 1.0 / 60.0)
-        return game
+    
 
     def build(self):
         game=ArkanivyGame()
         game.manu()
-        Clock.schedule_interval(game.update, 1.0 / 60.0)
+        Clock.schedule_interval(game.update, 1.0 / 80.0)
         return game
 
 if __name__ == '__main__':
