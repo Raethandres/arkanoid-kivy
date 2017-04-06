@@ -401,7 +401,7 @@ class ArkanivyGame(Widget):
         if self.mm:
             for x in range(len(self.bricks.im)):
               self.bricks.im[x].center_x = self.bricks.im[x].center_x + 1
-              if self.bricks.im[x].center_x>=self.height+(self.height/2):
+              if self.bricks.im[x].center_x>=self.width+(self.width/2):
                    self.mm=0
         else:
             for x in range(len(self.bricks.im)):
