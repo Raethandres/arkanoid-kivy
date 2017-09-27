@@ -294,9 +294,16 @@ class ArkanivyBrick(Widget):
         if self.im[index].collide_widget(ball):
             vx, vy = ball.velocity
             offset = 0
-            bounced = Vector(vx, -1 * vy)
-            vel = bounced * 1.004
-            ball.velocity = vel.x, vel.y+offset
+           
+            if ball.center_y>(self.im[index].center_y)-(self.im[index].height/2) and ball.center_y<(self.im[index].center_y)+(self.im[index].height/2) :
+                bounced = Vector(-1*vx,vy)
+                vel = bounced * 1.004
+                ball.velocity = vel.x+offset, vel.y
+                print('x')
+            else:
+                bounced = Vector(vx, -1 * vy)
+                vel = bounced * 1.004
+                ball.velocity = vel.x, vel.y+offset
             # if ball.center_x>self.center_x:
             #     if vel.x<-0.5:
             #         ball.velocity = vel.x+4, vel.y+offset
@@ -371,7 +378,7 @@ class ArkanivyGame(Widget):
         self.my = 100
 
     def load_level(self,l):  
-        self.bricks.var(self.width,self.height)
+        self.bricks.var(self.width,self.height+400)
         self.poi = int(self.bricks.po[l])
         f = self.bricks.dic[l]
         f()
@@ -398,16 +405,7 @@ class ArkanivyGame(Widget):
         self.ball.velocity = vel
     
     def move_blocks(self):
-        if self.mm and self.bricks.p == 4:
-            for x in range(len(self.bricks.im)):
-              self.bricks.im[x].center_x = self.bricks.im[x].center_x + 1
-              if self.bricks.im[x].center_x>=self.width+(self.width/2):
-                   self.mm=0
-        elif self.bricks.p == 4:
-            for x in range(len(self.bricks.im)):
-              self.bricks.im[x].center_x = self.bricks.im[x].center_x -1
-              if self.bricks.im[x].center_x<0:
-                   self.mm=1
+       
         if self.bricks.p == 4:
         	for x in range(len(self.bricks.snake)):
         		self.bricks.snake[x].center_y=self.bricks.snake[x].center_y-4
@@ -538,7 +536,7 @@ class ArkanivyGame(Widget):
     def on_touch_move(self, touch):
         if self.sw:
             self.player.center_x = touch.x
-        if not self.sb:
+        if not self.sb and self.sw:
             self.ball.center_x=touch.x
     def on_touch_up(self,touch):
         self.sw=0
